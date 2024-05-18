@@ -1,12 +1,13 @@
 {
-  "name": "todoapp",
-  "version": "1.0.0",
+  "name": "todoapp-cli-based-my-project",
+  "version": "1.0.2",
   "description": "TodoAPP CLI Based Project",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": "./TodoApp.js",
   "keywords": [],
   "author": "Hafiz M Atiq ID:00055468",
   "license": "ISC",

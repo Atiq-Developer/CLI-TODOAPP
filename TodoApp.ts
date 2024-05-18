@@ -1,23 +1,31 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 
-let tasks: any[] = [];
-let condition: boolean = true;
-while (condition) {
-  let answer = await inquirer.prompt([
-    {
-      message: "What you want to do add more sports in your todolist?",
-      type: "input",
-      name: "addTodos",
-    },
+let tasks: string[] = [];
+let condition = true;
 
+while (condition) {
+  let TodoQuestion = await inquirer.prompt([
     {
-      message: "Do you want to add more todo?",
+      name: "Question1",
+      type: "input",
+      message: "What would you like to Add in your TodoList:",
+    },
+    {
+      name: "Question2",
       type: "confirm",
-      name: "addMoreTodos",
-      default: "false",
+      message: "Would you Like to Add more in TodoList?",
+      default: true,
     },
   ]);
-  tasks.push(answer.addTodos);
-  condition = answer.addMoreTodos;
+
+  // Check if the input is not an empty string
+  if (TodoQuestion.Question1.trim() !== "") {
+    tasks.push(TodoQuestion.Question1.trim());
+  } else {
+    console.log("Task cannot be empty. Please enter a valid task.");
+  }
+
   console.log(tasks);
+  condition = TodoQuestion.Question2;
 }
